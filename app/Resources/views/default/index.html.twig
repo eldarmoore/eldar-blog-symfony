@@ -5,9 +5,11 @@
 {% block body %}
     <h1>Welcome to Eldar Blog</h1>
     <div>
-        {% for note in notes %}
-            <h2><a href="{{ path('blog_page', {'blogId': note.id}) }}">{{ note.name }}</a></h2>
-            <p>{{ note.quick_content }}</p>
+        {{ dump(blogs) }}
+        {% for blog in blogs %}
+            <h1><a href="{{ path('blog_page', {'blogId' : blog.id}) }}">{{ blog.title }}</a></h1>
+            <p>{{ blog.article }}</p>
+            <p>{{ blog.blogDate|date('H:m d/m/Y') }}</p>
         {% endfor %}
     </div>
 {% endblock %}

@@ -38,11 +38,14 @@ class BlogController extends Controller
     public function indexAction($blogId)
     {
 
-        return $this->render('default/blog_page.html.twig', array(
-            'id'    => $blogId,
-            'header'  => 'My Blog',
-            'content' => $content
-        ));
+        $em = $this->getDoctrine()->getManager();
+        $blog = $em->getRepository('AppBundle:Blog')->find($blogId);
+
+        if (!$blog) {
+            throw $this->createNotFoundException('No blog found!');
+        }
+
+        return $this->render('default/blog_page.html.twig', array('blog' => $blog));
     }
 
 }
