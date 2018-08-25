@@ -3,11 +3,10 @@
 {% block title %} Welcome to blog Page{% endblock %}
 
 {% block body %}
-    <h1>Welcome to {{ name }}</h1>
-    <p>Please visit <i style="color: #0088CC">"<a href="{{ url }}">{{ url }}</a>"</i> for more information.</p>
+    <h1>Welcome to Eldar Blog</h1>
     <div>
         {% for note in notes %}
-            <h2>{{ note.name }} </h2>
+            <h2><a href="{{ path('blog_page', {'blogPageId': note.id}) }}">{{ note.name }}</a></h2>
             <p>{{ note.quick_content }}</p>
         {% endfor %}
     </div>

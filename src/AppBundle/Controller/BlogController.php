@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 class BlogController extends Controller
 {
     /**
-     * @Route("/blog/{blogPageId}")
+     * @Route("/blog/{blogPageId}", name="blog_page")
      */
     public function showAction($blogPageId)
     {

@@ -3,6 +3,7 @@
 {% block title %} Welcome to blog Page {{ id }}{% endblock %}
 
 {% block body %}
-    <h1>Welcome to blog number {{ id }}</h1>
+    <h1>{{ header }}</h1>
     <div>{{ content }}</div>
+    <a href="{{ path('index_page') }}">Return Home</a>
 {% endblock %}
