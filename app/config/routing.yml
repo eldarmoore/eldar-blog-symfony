@@ -7,6 +7,11 @@ index_page:
     defaults:
         _controller: AppBundle:Default:index
 
+blog_new:
+    path: /blog/new
+    defaults:
+        _controller: AppBundle:Blog:new
+
 blog_page:
     path: /blog/{blogId}
     defaults:
