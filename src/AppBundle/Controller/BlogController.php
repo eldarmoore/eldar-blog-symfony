@@ -3,23 +3,32 @@
  * Created by PhpStorm.
  * User: eldarmoore
  * Date: 24/08/2018
- * Time: 11:07
+ * Time: 11:17
  */
 
 namespace AppBundle\Controller;
 
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Response; // Response
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
-class BlogController
+class BlogController extends Controller
 {
     /**
-     * @Route("/") // use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route
+     * @Route("/blog/{blogPageId}")
      */
-    public function showAction()
+    public function showAction($blogPageId)
     {
-        // use Symfony\Component\HttpFoundation\Response
-        return new Response('Welcome to symfony version blog page!');
+        // Basic Routing
+        // return new Response('Welcome to the blog page number: '.$blogPageId);
+
+        $content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci alias asperiores corporis delectus doloremque dolores, enim facilis fugit id incidunt, libero, maxime nam nulla perspiciatis quidem quos similique sunt.';
+
+        return $this->render('default/blog_page.html.twig', array(
+            'id'    => $blogPageId,
+            'header'  => 'My Blog',
+            'content' => $content
+        ));
     }
 }

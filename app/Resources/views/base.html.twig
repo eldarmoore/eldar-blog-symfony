@@ -4,12 +4,27 @@
         <meta charset="UTF-8" />
         <title>{% block title %}{% endblock %}</title>
         {% block stylesheets %}
+
+            {# Bootstrap #}
+            <link rel="stylesheet" href="{{ asset('../vendor/twbs/bootstrap/dist/css/bootstrap.min.css') }}">
+
+            {# Custom CSS #}
             <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
         {% endblock %}
         <link rel="icon" type="image/svg" href="{{ asset('images/logo.svg') }}" sizes="16x16" />
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+
+            {# Bootstrap package #}
+            <script src="{{ asset('../vendor/components/jquery/jquery.min.js') }}"></script>
+            <script src="{{ asset('../vendor/twbs/bootstrap/site/docs/4.1/assets/js/vendor/popper.min.js') }}"></script>
+            <script src="{{ asset('../vendor/twbs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
+            {# Custom JS #}
+            <script src="{{ asset('../web/js/script.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
+

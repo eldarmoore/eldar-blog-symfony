@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Welcome to {{ name }}{% endblock %}
+{% block title %} Welcome to blog Page{% endblock %}
 
 {% block body %}
     <h1>Welcome to {{ name }}</h1>
     <p>Please visit <i style="color: #0088CC">"<a href="{{ url }}">{{ url }}</a>"</i> for more information.</p>
-    <ul>
+    <div>
         {% for note in notes %}
-        <li>{{ note }}</li>
+            <h2>{{ note.name }} </h2>
+            <p>{{ note.quick_content }}</p>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}
