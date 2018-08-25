@@ -9,24 +9,18 @@
 namespace AppBundle\Controller;
 
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
 
 class BlogController extends Controller
 {
-    /**
-     * @Route("/blog/{blogPageId}", name="blog_page")
-     */
-    public function showAction($blogPageId)
+
+    public function indexAction($blogId)
     {
-        // Basic Routing
-        // return new Response('Welcome to the blog page number: '.$blogPageId);
 
         $content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci alias asperiores corporis delectus doloremque dolores, enim facilis fugit id incidunt, libero, maxime nam nulla perspiciatis quidem quos similique sunt.';
 
         return $this->render('default/blog_page.html.twig', array(
-            'id'    => $blogPageId,
+            'id'    => $blogId,
             'header'  => 'My Blog',
             'content' => $content
         ));

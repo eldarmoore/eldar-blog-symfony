@@ -6,7 +6,7 @@
     <h1>Welcome to Eldar Blog</h1>
     <div>
         {% for note in notes %}
-            <h2><a href="{{ path('blog_page', {'blogPageId': note.id}) }}">{{ note.name }}</a></h2>
+            <h2><a href="{{ path('blog_page', {'blogId': note.id}) }}">{{ note.name }}</a></h2>
             <p>{{ note.quick_content }}</p>
         {% endfor %}
     </div>

@@ -9,19 +9,12 @@
 namespace AppBundle\Controller;
 
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response; // Response
 
 class DefaultController extends Controller
 {
-    /**
-     * @Route("/", name="index_page") // use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route
-     */
     public function indexAction()
     {
-        // use Symfony\Component\HttpFoundation\Response
-        // return new Response('Welcome to symfony version blog page!');
 
         $blogs = [
             ['id' => 12, 'name' => 'American History',                                          'quick_content' => 'Some random and clever text is going on here.'],
