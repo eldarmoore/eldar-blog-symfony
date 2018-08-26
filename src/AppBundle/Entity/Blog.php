@@ -36,7 +36,7 @@ class Blog
     /**
      * @ORM\Column(type="datetime")
      */
-    private $blog_date;
+    private $createdAt;
 
     /**
      * @ORM\Column(type="integer")
@@ -88,7 +88,7 @@ class Blog
      */
     public function getBlogDate()
     {
-        return $this->blog_date;
+        return $this->createdAt;
     }
 
     /**
@@ -96,7 +96,7 @@ class Blog
      */
     public function setBlogDate($blog_date)
     {
-        $this->blog_date = $blog_date;
+        $this->createdAt = $blog_date;
     }
 
     /**
@@ -114,6 +114,5 @@ class Blog
     {
         $this->user_id = $user_id;
     }
-
 
 }

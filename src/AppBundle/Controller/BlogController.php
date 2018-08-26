@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\Blog;
+use AppBundle\Entity\Comment;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,10 +27,17 @@ class BlogController extends Controller
         $blog->setBlogDate(new \DateTime());
         $blog->setUserId(rand(10, 9999));
 
+        $comment = new Comment();
+        $comment->setComment('Hello World!');
+        $comment->setUserId(rand(123,8999));
+        $comment->setCreatedAt(new \DateTime('-1 month'));
+        $comment->setBlog($blog);
+
         // Entity Manager
         // Saving Data
         $em = $this->getDoctrine()->getManager();
         $em->persist($blog);
+        $em->persist($comment);
         $em->flush();
 
         return new Response('<html><body>Blog created!</body></html>');
