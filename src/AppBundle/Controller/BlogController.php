@@ -11,36 +11,57 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Blog;
 use AppBundle\Entity\Comment;
+use AppBundle\Form\BlogFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class BlogController extends Controller
 {
-    public $content = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci alias asperiores corporis delectus doloremque dolores, enim facilis fugit id incidunt, libero, maxime nam nulla perspiciatis quidem quos similique sunt.';
 
-    public function newAction()
+    public function newAction(Request $request)
     {
-        $blog = new Blog();
-        $blog->setTitle('My first Title');
-        $blog->setArticle($this->content);
-        $blog->setBlogDate(new \DateTime());
-        $blog->setUserId(rand(10, 9999));
+//        $blog = new Blog();
+//
 
-        $comment = new Comment();
-        $comment->setComment('Hello World!');
-        $comment->setUserId(rand(123,8999));
-        $comment->setCreatedAt(new \DateTime('-1 month'));
-        $comment->setBlog($blog);
+        $form = $this->createForm(BlogFormType::class);
 
-        // Entity Manager
-        // Saving Data
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($blog);
-        $em->persist($comment);
-        $em->flush();
+        // Only handles data on POST
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            // dump($form->getData());die;
+            $blog = $form->getData();
+            $blog->setBlogDate(new \DateTime());
+            $blog->setUserId(rand(10, 9999));
 
-        return new Response('<html><body>Blog created!</body></html>');
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($blog);
+            $em->flush();
+
+            $this->addFlash('success', 'Blog created - you are amazing!!!');
+
+            return $this->redirectToRoute('index_page');
+        }
+
+        return $this->render('default/new.html.twig', [
+            'blogForm' => $form->createView()
+        ]);
+
+//        $comment = new Comment();
+//        $comment->setComment('Hello World!');
+//        $comment->setUserId(rand(123,8999));
+//        $comment->setCreatedAt(new \DateTime('-1 month'));
+//        $comment->setBlog($blog);
+//
+//        // Entity Manager
+//        // Saving Data
+//        $em = $this->getDoctrine()->getManager();
+//        $em->persist($blog);
+//        $em->persist($comment);
+//        $em->flush();
+//
+//        return new Response('<html><body>Blog created!</body></html>');
     }
 
     public function indexAction($blogId)

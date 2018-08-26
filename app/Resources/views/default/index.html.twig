@@ -4,10 +4,11 @@
 
 {% block body %}
     <h1>Welcome to Eldar Blog</h1>
+    <a href="{{ path('blog_new') }}">Add New Blog</a>
     <div>
         {% for blog in blogs %}
             <h1><a href="{{ path('blog_page', {'blogId' : blog.id}) }}">{{ blog.title }}</a></h1>
-            <p>{{ blog.article }}</p>
+            <p>{{ blog.article|slice(0, 1000) }}</p>
             <p>{{ blog.blogDate|date('H:m d/m/Y') }}</p>
         {% endfor %}
     </div>
