@@ -2,3 +2,22 @@ body {
     background: rgb(255,255,255) url("../images/background-image.png") no-repeat top center;
     background-size: 100%;
 }
+
+.blog-post {
+    border-bottom: 1px dashed #dedede;
+}
+
+.index-blog-wrapper {
+    background-color: #ffffff;
+    border-right: 1px dotted #dedede;
+    border-left: 1px dotted #dedede;
+}
+
+.carousel-inner {
+    height: 350px;
+    margin-bottom: 20px;
+}
+
+.article-justify {
+    text-align: justify;
+}
