@@ -1,6 +1,9 @@
 body {
     background: rgb(255,255,255) url("../images/background-image.png") no-repeat top center;
     background-size: 100%;
+    font-family: 'Droid Sans Mono', sans-serif;
+    font-weight: 100;
+    font-size: 18px;
 }
 
 .blog-post {
@@ -9,8 +12,7 @@ body {
 
 .index-blog-wrapper {
     background-color: #ffffff;
-    border-right: 1px dotted #dedede;
-    border-left: 1px dotted #dedede;
+    box-shadow: 2px 0 15px -4px rgba(25, 25, 25, 0.1), -2px 0 8px -4px rgba(25, 25, 25, 0.1);
 }
 
 .carousel-inner {
@@ -20,4 +22,24 @@ body {
 
 .article-justify {
     text-align: justify;
+    color: #737373;
+}
+
+.blog-post-title {
+    color: #17a2b8;
+}
+
+/* Override */
+.new-shadow-sm {
+    box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Override */
+.card {
+    border: none;
+}
+
+/* Override */
+#app_bundle_blog_form_type_title {
+    border-radius: 0;
 }

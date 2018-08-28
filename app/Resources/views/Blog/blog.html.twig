@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Welcome to blog Page{% endblock %}
+
+{% block body %}
+    <div class="col-md-8 blog-main" style="margin-bottom: 50px;padding-top: 40px;">
+        <h1 style="color: #17a2b8">{{ blog.title }}</h1>
+        <p class="article-justify">{{ blog.article|raw }}</p>
+        <p>{{ blog.blogDate|date('H:m d/m/Y') }}</p>
+        <a class="btn btn-info sm" href="{{ path('index_page') }}">Return Home</a>
+    </div>
+{% endblock %}
+

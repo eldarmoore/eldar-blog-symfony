@@ -9,6 +9,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogRepository")
@@ -24,11 +25,13 @@ class Blog
     private $id;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string",options={"collate"="utf8_general_ci"})
      */
     private $title;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="text",options={"collate"="utf8_general_ci"})
      */
     private $article;

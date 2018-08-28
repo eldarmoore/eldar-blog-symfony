@@ -44,7 +44,7 @@ class BlogController extends Controller
             return $this->redirectToRoute('index_page');
         }
 
-        return $this->render('default/new.html.twig', [
+        return $this->render('blog/new.html.twig', [
             'blogForm' => $form->createView()
         ]);
 
@@ -74,7 +74,7 @@ class BlogController extends Controller
             throw $this->createNotFoundException('No blog found!');
         }
 
-        return $this->render('default/blog_page.html.twig', array('blog' => $blog));
+        return $this->render('blog/blog.html.twig', array('blog' => $blog));
     }
 
 }
