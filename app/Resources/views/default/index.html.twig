@@ -13,6 +13,7 @@
                 <p class="blog-post-meta" style="font-size: 15px"><i>{{ blog.blogDate|date('M d, Y') }} by <a href="#">Mark</a></i></p>
                 <p class="article-justify">{{ blog.article|slice(0, 1000)|raw }}</p>
                 <a style="margin-bottom: 20px;border: none;font-size: 12px" class="btn btn-info sm" href="{{ path('blog_page',{'blogId': blog.id}) }}">Read more</a>
+                <a style="margin-bottom: 20px;border: none;font-size: 12px" class="btn btn-info sm" href="{{ path('blog_edit',{'id': blog.id}) }}">Edit</a>
             </div><!-- /.blog-post -->
         {% endfor %}
 

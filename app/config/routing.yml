@@ -12,6 +12,11 @@ blog_new:
     defaults:
         _controller: AppBundle:Blog:new
 
+blog_edit:
+    path: /blog/{id}/edit
+    defaults:
+        _controller: AppBundle:Blog:edit
+
 blog_page:
     path: /blog/{blogId}
     defaults:
