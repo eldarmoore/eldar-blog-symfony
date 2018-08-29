@@ -7,7 +7,8 @@
         <h1 style="color: #17a2b8">{{ blog.title }}</h1>
         <p class="article-justify">{{ blog.article|raw }}</p>
         <p>{{ blog.blogDate|date('H:m d/m/Y') }}</p>
-        <a class="btn btn-info sm" href="{{ path('index_page') }}">Return Home</a>
+        <a style="margin-bottom: 20px;border: none;font-size: 12px" class="btn btn-info sm" href="{{ path('index_page') }}">Return Home</a>
+        <a style="margin-bottom: 20px;border: none;font-size: 12px" class="btn btn-danger sm" href="{{ path('blog_delete',{'id': blog.id}) }}">Delete</a>
     </div>
 {% endblock %}
 

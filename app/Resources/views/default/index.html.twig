@@ -7,15 +7,24 @@
     {% include ('default/carousel.html.twig') %}
 
     <div class="col-md-8 blog-main">
+
+        {% if blogs is defined %}
+
         {% for blog in blogs %}
             <div class="blog-post">
                 <h1 class="blog-post-title">{{ blog.title }}</h1>
                 <p class="blog-post-meta" style="font-size: 15px"><i>{{ blog.blogDate|date('M d, Y') }} by <a href="#">Mark</a></i></p>
                 <p class="article-justify">{{ blog.article|slice(0, 1000)|raw }}</p>
                 <a style="margin-bottom: 20px;border: none;font-size: 12px" class="btn btn-info sm" href="{{ path('blog_page',{'blogId': blog.id}) }}">Read more</a>
-                <a style="margin-bottom: 20px;border: none;font-size: 12px" class="btn btn-info sm" href="{{ path('blog_edit',{'id': blog.id}) }}">Edit</a>
+                <a style="margin-bottom: 20px;border: none;font-size: 12px" class="btn btn-warning sm" href="{{ path('blog_edit',{'id': blog.id}) }}">Edit</a>
             </div><!-- /.blog-post -->
         {% endfor %}
+
+        {% else %}
+
+            <h1>No Records</h1>
+
+        {% endif %}
 
         <nav class="blog-pagination">
             <a class="btn btn-outline-primary" href="#">Older</a>

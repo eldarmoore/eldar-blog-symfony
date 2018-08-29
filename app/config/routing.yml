@@ -17,6 +17,11 @@ blog_edit:
     defaults:
         _controller: AppBundle:Blog:edit
 
+blog_delete:
+    path: /blog/{id}/delete
+    defaults:
+        _controller: AppBundle:Blog:delete
+
 blog_page:
     path: /blog/{blogId}
     defaults:

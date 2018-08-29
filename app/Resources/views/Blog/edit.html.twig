@@ -5,7 +5,8 @@
         <h1>Edit Blog</h1>
         {{ form_start(blogForm) }}
             {{ form_widget(blogForm) }}
-        <button type="submit" class="btn btn-primary" formnovalidate>Save</button>
+        <button style="margin-bottom: 20px;border: none;font-size: 12px" type="submit" class="btn btn-info sm" formnovalidate>Save</button>
+        <a style="margin-bottom: 20px;border: none;font-size: 12px" class="btn btn-danger sm" href="{{ path('blog_delete',{'id': blog.id}) }}">Delete</a>
         {{ form_end(blogForm)}}
     </div>
 {% endblock %}
@@ -14,6 +15,9 @@
     {{ parent() }}
     <script src="{{ asset('../vendor/ckeditor/ckeditor/ckeditor.js') }}"></script>
     <script>
-        CKEDITOR.replace( 'app_bundle_blog_form_type[article]' );
+        CKEDITOR.replace( 'app_bundle_blog_form_type[article]', {
+            customConfig: '{{ asset('js/ckeditor_config.js') }}'
+        } );
+
     </script>
 {% endblock %}

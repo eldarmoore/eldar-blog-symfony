@@ -14,7 +14,7 @@ class BlogFormType extends AbstractType
         $builder
             ->add('title')
             ->add('article', TextareaType::class, array(
-                'attr' => array('name' => 'editor1','rows' => '10', 'cols' => '80'),
+                'attr' => array('name' => 'editor1'),
             ));
     }
 

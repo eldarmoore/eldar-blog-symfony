@@ -71,11 +71,22 @@ class BlogController extends Controller
         }
 
         return $this->render('blog/edit.html.twig', [
-            'blogForm' => $form->createView()
+            'blogForm' => $form->createView(),
+            'blog' => $blog
         ]);
 
     }
 
+    public function deleteAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $blog = $em->getRepository('AppBundle:Blog')->find($id);
+
+        $em->remove($blog);
+        $em->flush();
+
+        return $this->redirectToRoute('index_page');
+    }
 
     public function indexAction($blogId)
     {
